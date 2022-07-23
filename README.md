@@ -1,2 +1,2 @@
 # Fluke-Friends
-Find people with shared interests!
+Find people that search the same thing at the same time!
