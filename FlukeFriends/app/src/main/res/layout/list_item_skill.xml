@@ -118,7 +118,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@null"
-                android:src="@drawable/ic_baseline_plus_one_24"
+                android:src="@drawable/ic_round_check_24"
                 app:tint="@color/purple_500" />
         </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
