@@ -11,9 +11,12 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
@@ -25,6 +28,22 @@ const val TABLE_SKILL = "table_skill"
 const val DB_SKILL = "db_skill"
 
 const val TAG_MENU_MODAL_BOTTOM_SHEET = "TAG_MENU_MODAL_BOTTOM_SHEET"
+
+fun Context.color(@ColorRes colorRes: Int) = ContextCompat.getColor(this, colorRes)
+
+fun Context.drawable(@DrawableRes drawableRes: Int): Drawable? =
+    ContextCompat.getDrawable(this, drawableRes)
+
+fun AppCompatActivity.showScreen(
+    fragment: Fragment,
+    tag: String
+) {
+    supportFragmentManager.beginTransaction()
+        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+        .add(R.id.cl_home_container, fragment, tag)
+        .addToBackStack(null)
+        .commit()
+}
 
 fun View.showSnackBar(
     message: String,

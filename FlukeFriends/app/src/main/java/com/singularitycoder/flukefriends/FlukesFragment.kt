@@ -9,6 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.singularitycoder.flukefriends.databinding.FragmentFlukesBinding
 import dagger.hilt.android.AndroidEntryPoint
 
+// If possible, peer to peer else Google login, NodeJS server
+// Basic idea is to match the meaning of the people who search for the same thing within the same durations - maybe a min, 15 min, 1 hr etc. That is something the user sets
+// So, add your search query, set the duration it must expire. Wait for other peopel who search the same thing within that duration. If multiple users search for the same thing, if the meaning is the same, then create a chat group or a fluke with all of them. Thats it.
+// https://github.com/huggingface/tflite-android-transformers for matching the meaning of the sentence
+// https://github.com/huggingface
+// https://github.com/monologg/transformers-android-demo
+
 @AndroidEntryPoint
 class FlukesFragment : Fragment() {
 
@@ -24,11 +31,11 @@ class FlukesFragment : Fragment() {
 //    private val skillAdapter = SkillAdapter()
 //    private val duplicateSkillList = mutableListOf<Skill>()
 
-    private var skillLevelParam: String? = null
+    private var tabTitleParam: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        skillLevelParam = arguments?.getString(ARG_PARAM_SKILL_LEVEL)
+        tabTitleParam = arguments?.getString(ARG_PARAM_SKILL_LEVEL)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -44,7 +51,7 @@ class FlukesFragment : Fragment() {
     }
 
     private fun FragmentFlukesBinding.setupUI() {
-        etSearch.hint = "Search ${skillLevelParam?.lowercase()} skills"
+        etSearch.hint = "Search ${tabTitleParam?.lowercase()}"
         rvFlukes.apply {
             layoutManager = LinearLayoutManager(context)
 //            adapter = skillAdapter

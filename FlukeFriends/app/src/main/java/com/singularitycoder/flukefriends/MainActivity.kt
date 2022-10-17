@@ -42,7 +42,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.setupUI()
         setUpViewPager()
+    }
+
+    private fun ActivityMainBinding.setupUI() {
+        ivImage.setImageDrawable(drawable(R.drawable.hithesh))
     }
 
     override fun onDestroy() {
