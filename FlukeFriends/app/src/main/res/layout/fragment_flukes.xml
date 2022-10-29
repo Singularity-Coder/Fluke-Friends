@@ -66,10 +66,10 @@
         android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_search"
-        tools:listitem="@layout/list_item_skill" />
+        tools:listitem="@layout/list_item_fluke" />
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_add_skill_parent"
+        android:id="@+id/card_add_thought_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -86,7 +86,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/et_skill"
+                android:id="@+id/et_thought"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
@@ -99,12 +99,12 @@
                 android:textColor="@color/title_color"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/card_add_skill"
+                app:layout_constraintEnd_toStartOf="@+id/card_add_thought"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_add_skill"
+                android:id="@+id/card_add_thought"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="6dp"
@@ -116,7 +116,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageButton
-                    android:id="@+id/ib_add_skill"
+                    android:id="@+id/ib_add_thought"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@null"

@@ -1,9 +1,12 @@
 package com.singularitycoder.flukefriends
 
 import android.os.Bundle
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.singularitycoder.flukefriends.databinding.FragmentFlukesBinding
@@ -28,8 +31,8 @@ class FlukesFragment : Fragment() {
 
     private lateinit var binding: FragmentFlukesBinding
 
-//    private val skillAdapter = SkillAdapter()
-//    private val duplicateSkillList = mutableListOf<Skill>()
+    private val flukesAdapter = FlukesAdapter()
+    private val duplicateFlukeList = mutableListOf<Fluke>()
 
     private var tabTitleParam: String? = null
 
@@ -54,20 +57,42 @@ class FlukesFragment : Fragment() {
         etSearch.hint = "Search ${tabTitleParam?.lowercase()}"
         rvFlukes.apply {
             layoutManager = LinearLayoutManager(context)
-//            adapter = skillAdapter
+            adapter = flukesAdapter
         }
+        val dummyFlukesList = listOf<Fluke>(
+            Fluke(
+                id = 1,
+                title = "How to solve this problem x + y = z",
+                expiry = timeNow,
+                count = 9
+            ),
+            Fluke(
+                id = 1,
+                title = "How to solve this problem x + y = z",
+                expiry = timeNow,
+                count = 9
+            ),
+            Fluke(
+                id = 1,
+                title = "How to solve this problem x + y = z",
+                expiry = timeNow,
+                count = 9
+            )
+        )
+        flukesAdapter.flukeList = dummyFlukesList
+        flukesAdapter.notifyDataSetChanged()
     }
 
     private fun FragmentFlukesBinding.setupUserActionListeners() {
-//        etSearch.doAfterTextChanged { keyWord: Editable? ->
-//            ibClearSearch.isVisible = keyWord.isNullOrBlank().not()
-//            if (keyWord.isNullOrBlank()) {
-//                skillAdapter.skillList = duplicateSkillList
-//            } else {
-//                skillAdapter.skillList = skillAdapter.skillList.filter { it: Skill -> it.name.contains(keyWord) }
-//            }
-//            skillAdapter.notifyDataSetChanged()
-//        }
+        etSearch.doAfterTextChanged { keyWord: Editable? ->
+            ibClearSearch.isVisible = keyWord.isNullOrBlank().not()
+            if (keyWord.isNullOrBlank()) {
+                flukesAdapter.flukeList = duplicateFlukeList
+            } else {
+                flukesAdapter.flukeList = flukesAdapter.flukeList.filter { it: Fluke -> it.title.contains(keyWord) }
+            }
+            flukesAdapter.notifyDataSetChanged()
+        }
         ibClearSearch.setOnClickListener {
             etSearch.setText("")
         }

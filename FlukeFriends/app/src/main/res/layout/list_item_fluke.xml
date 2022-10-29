@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginBottom="16dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_fluke_count"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:cardBackgroundColor="@color/purple_50"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/card_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/card_content"
+        app:strokeWidth="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tv_fluke_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:maxLength="3"
+                android:maxLines="1"
+                android:text="999"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                android:textColor="@color/purple_200" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="flukes"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:layout_marginTop="4dp"
+                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                android:textColor="@color/purple_200"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/card_fluke_count"
+        app:strokeColor="@color/black_50"
+        app:strokeWidth="1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:id="@+id/tv_thought_description"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
+                android:text="Thought Description"
+                android:textColor="@color/title_color"
+                app:layout_constraintEnd_toStartOf="@+id/iv_right_arrow"
+                app:layout_constraintStart_toEndOf="@+id/iv_right_arrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_expiry_time"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
+                android:text="Expires in 6 hr"
+                android:textColor="@android:color/darker_gray"
+                app:layout_constraintEnd_toStartOf="@+id/iv_right_arrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_thought_description" />
+
+            <ImageView
+                android:id="@+id/iv_right_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_round_keyboard_arrow_right_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@android:color/darker_gray" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
